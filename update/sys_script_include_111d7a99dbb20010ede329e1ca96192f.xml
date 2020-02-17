@@ -19,14 +19,13 @@ ServiceNowIncidentUtilsAjax.prototype = Object.extendsObject(global.AbstractAjax
 			return JSON.stringify(str);
 		}
 		
-		/*str.message = '<table class="table table-striped table-responsive" ng-if="data.list.length">'+
-			'<thead><tr><th class="header-checkbox"><div><input class="pointer" type="checkbox" ng-model="data.allSelected" ng-click="selectAllOnClick()"></div></th><th class="header-{{field}}" ng-repeat="field in data.fields_array track by $index" ng-click="setOrderBy(field)" tabindex="0"><div class="th-title" aria-label="${Sort by } {{data.column_labels[field]}}">{{data.column_labels[field]}}</div><i class="fa" ng-if="field == data.o" aria-label="${Sorted by } {{data.column_labels[field]}}"></i></th></tr></thead>';*/
+		str.message = '<table><tr><th>Company</th><th>Contact</th><th>Country</th></tr><tr><td>Alfreds Futterkiste</td><td>Maria Anders</td>    <td>Germany</td></tr><tr><td>Centro comercial Moctezuma</td><td>Francisco Chang</td><td>Mexico</td></tr><tr><td>Ernst Handel</td><td>Roland Mendel</td>    <td>Austria</td></tr><tr><td>Island Trading</td><td>Helen Bennett</td><td>UK</td></tr><tr><td>Laughing Bacchus Winecellars</td><td>Yoshi Tannamuri</td><td>Canada</td></tr><tr><td>Magazzini Alimentari Riuniti</td><td>Giovanni Rovelli</td><td>Italy</td></tr></table>';
 	
-		str.message ="<p>sys_id es: '" + gr.getUniqueValue() + "'</p>" +
+		/*str.message ="<p>sys_id es: '" + gr.getUniqueValue() + "'</p>" +
 			"<p>Caller es: '" + gr.getDisplayValue('caller_id') + "'</p>" +
 			"<p>Caller.user_name es: '" + gr.caller_id.getRefRecord().getValue('user_name') + "'</p>" +
 			"<p>Caller.first_name es: '" + gr.caller_id.getRefRecord().getValue('first_name') + "'</p>" +
-			"<p>Number es: '" + gr.getDisplayValue('number') + "'</p>";
+			"<p>Number es: '" + gr.getDisplayValue('number') + "'</p>";*/
 		//str.message = "andres";
 		return JSON.stringify(str);
 	},
@@ -37,13 +36,13 @@ ServiceNowIncidentUtilsAjax.prototype = Object.extendsObject(global.AbstractAjax
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-02-05 14:59:47</sys_created_on>
         <sys_id>111d7a99dbb20010ede329e1ca96192f</sys_id>
-        <sys_mod_count>41</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>ServiceNowIncidentUtilsAjax</sys_name>
         <sys_package display_value="Angular App" source="x_414057_angular_a">92b7b0eadb620010ede329e1ca961934</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Angular App">92b7b0eadb620010ede329e1ca961934</sys_scope>
         <sys_update_name>sys_script_include_111d7a99dbb20010ede329e1ca96192f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-02-17 14:17:27</sys_updated_on>
+        <sys_updated_on>2020-02-17 14:22:36</sys_updated_on>
     </sys_script_include>
 </record_update>
