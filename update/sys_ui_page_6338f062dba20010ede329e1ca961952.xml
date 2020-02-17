@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
     <sys_ui_page action="INSERT_OR_UPDATE">
         <category>general</category>
-        <client_script><![CDATA[/* This would be how we would do in same "file/script/something", but now is changed so we inyect a script tag wuth the link to tue UI Script action
+        <client_script><![CDATA[/* This would be how we would do in same "file/script/something", but now is changed so we inyect a script tag with the link to tue UI Script action
 angular.module('angularapp', []);
 angular.module('angularapp').controller('AngularAppCtrl', function($scope){
 	$scope.myVar = '';
@@ -31,8 +31,10 @@ angular.module('angularapp').controller('AngularAppCtrl', function($scope){
 			<p>{{myVar}}</p>
   		</div>
 		<button ng-click="clearTxt()" type="button" class="btn btn-primary">Clear Text</button>
+		<p><input type="text" ng-model="incidentId"></input></p>
+		<p><input type="button" ng-click="showIncident()" value="Show Incident"></input></p>
 		<div class="panel">
-			{{panel}}
+			empieza --> {{panel}}
 		</div>
 	</div>
 </j:jelly>]]></html>
@@ -42,13 +44,13 @@ angular.module('angularapp').controller('AngularAppCtrl', function($scope){
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-01-27 16:09:02</sys_created_on>
         <sys_id>6338f062dba20010ede329e1ca961952</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>angular_app</sys_name>
         <sys_package display_value="Angular App" source="x_414057_angular_a">92b7b0eadb620010ede329e1ca961934</sys_package>
         <sys_policy/>
         <sys_scope display_value="Angular App">92b7b0eadb620010ede329e1ca961934</sys_scope>
         <sys_update_name>sys_ui_page_6338f062dba20010ede329e1ca961952</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-02-05 15:01:13</sys_updated_on>
+        <sys_updated_on>2020-02-14 11:04:23</sys_updated_on>
     </sys_ui_page>
 </record_update>

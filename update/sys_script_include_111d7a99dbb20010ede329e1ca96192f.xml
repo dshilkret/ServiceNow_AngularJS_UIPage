@@ -1,44 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
     <sys_script_include action="INSERT_OR_UPDATE">
-        <access>package_private</access>
+        <access>public</access>
         <active>true</active>
-        <api_name>x_414057_angular_a.ServiceNowIncidentUtils</api_name>
+        <api_name>x_414057_angular_a.ServiceNowIncidentUtilsAjax</api_name>
         <caller_access/>
         <client_callable>true</client_callable>
         <description/>
-        <name>ServiceNowIncidentUtils</name>
-        <script><![CDATA[var ServiceNowIncidentUtils = Class.create();
-ServiceNowIncidentUtils.prototype = {
-	initialize: function() {
-	},
-	
-	getIncident: function(id) {
+        <name>ServiceNowIncidentUtilsAjax</name>
+        <script><![CDATA[var ServiceNowIncidentUtilsAjax = Class.create();
+ServiceNowIncidentUtilsAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+	getIncident: function(instance) {
+		var str = {};
 		var gr = new GlideRecord("incident");
-		if (!gr.get(id))
-			return "No incidents were found. ¿otra p*** vez me has pasado mal el ID?... venga, que no es tan dificil...";
-
-		var str = "<p>sys_id es: '" + gr.getUniqueValue() + "'</p>" +
+		if (!gr.get(instance)) {
+			str.message = "No incidents were found. ¿otra p*** vez me has pasado mal el ID?... venga, que no es tan dificil leñe...";
+			return JSON.stringify(str);
+		}
+		
+		/*str.message = '<table class="table table-striped table-responsive" ng-if="data.list.length">'+
+			'<thead><tr><th class="header-checkbox"><div><input class="pointer" type="checkbox" ng-model="data.allSelected" ng-click="selectAllOnClick()"></div></th><th class="header-{{field}}" ng-repeat="field in data.fields_array track by $index" ng-click="setOrderBy(field)" tabindex="0"><div class="th-title" aria-label="${Sort by } {{data.column_labels[field]}}">{{data.column_labels[field]}}</div><i class="fa" ng-if="field == data.o" aria-label="${Sorted by } {{data.column_labels[field]}}"></i></th></tr></thead>';*/
+	
+		str.message ="<p>sys_id es: '" + gr.getUniqueValue() + "'</p>" +
 			"<p>Caller es: '" + gr.getDisplayValue('caller_id') + "'</p>" +
 			"<p>Caller.user_name es: '" + gr.caller_id.getRefRecord().getValue('user_name') + "'</p>" +
 			"<p>Caller.first_name es: '" + gr.caller_id.getRefRecord().getValue('first_name') + "'</p>" +
 			"<p>Number es: '" + gr.getDisplayValue('number') + "'</p>";
-
-		return str;
+		//str.message = "andres";
+		return JSON.stringify(str);
 	},
 
-	type: 'ServiceNowIncidentUtils'
-};]]></script>
+	type: 'ServiceNowIncidentUtilsAjax'
+});]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2020-02-05 14:59:47</sys_created_on>
         <sys_id>111d7a99dbb20010ede329e1ca96192f</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>ServiceNowIncidentUtils</sys_name>
+        <sys_mod_count>34</sys_mod_count>
+        <sys_name>ServiceNowIncidentUtilsAjax</sys_name>
         <sys_package display_value="Angular App" source="x_414057_angular_a">92b7b0eadb620010ede329e1ca961934</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="Angular App">92b7b0eadb620010ede329e1ca961934</sys_scope>
         <sys_update_name>sys_script_include_111d7a99dbb20010ede329e1ca96192f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-02-05 14:59:47</sys_updated_on>
+        <sys_updated_on>2020-02-17 08:21:13</sys_updated_on>
     </sys_script_include>
 </record_update>
