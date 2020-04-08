@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
+    <sys_ui_script action="DELETE">
+        <active>true</active>
+        <description>Client-side logic for Angular App. &#13;
+[https://developer.servicenow.com/app.do#!/training/article/app_store_learnv2_angularjs_newyork_introduction_to_angularjs_in_servicenow/app_store_learnv2_angularjs_newyork_exercise_create_and_use_a_ui_script?v=newyork]</description>
+        <global>false</global>
+        <name>x_414057_angular_a.angular_app_client_lo</name>
+        <script><![CDATA[angular.module('angularapp', []);
+angular.module('angularapp').controller('AngularAppCtrl', function($scope/*, $sce*/){
+	var entityMap = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': '&quot;',
+        "'": '&#39;',
+        "/": '&#x2F;'
+    };
+	$scope.myVar = '';
+	$scope.incidentId = '57af7aec73d423002728660c4cf6a71c';
+	$scope.panel = '';
+	$scope.i = 0;
+	$scope.clearTxt = function(){
+		$scope.myVar = '';
+		$scope.i++;
+		alert("the myVar value was cleared " + $scope.i + " times by " + g_user.userName);
+	};
+	
+	$scope.showIncident = function(){
+		//alert($scope.incidentId);
+		var gajx = new GlideAjax("ServiceNowIncidentUtilsAjax");
+		gajx.addParam('sysparm_name', "getIncident");
+		gajx.addParam('sysparm_instance', $scope.incidentId);
+		gajx.getXMLWait();
+		
+		var answer = JSON.parse(gajx.getAnswer());
+		//alert("answer is: " + answer.message);
+		//$scope.panel = $sce.trustAsHtml(answer.message);
+        $scope.panel = String(answer.message).replace(/[&<>"'\/]/g, function (s) {
+            return entityMap[s];
+        });
+		//$scope.panel = answer.message;
+	};
+});]]></script>
+        <script_name>angular_app_client_logic</script_name>
+        <sys_class_name>sys_ui_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-01-31 10:35:32</sys_created_on>
+        <sys_id>83e25433dba20010ede329e1ca961903</sys_id>
+        <sys_mod_count>45</sys_mod_count>
+        <sys_name>x_414057_angular_a.angular_app_client_lo</sys_name>
+        <sys_package display_value="Angular App" source="x_414057_angular_a">92b7b0eadb620010ede329e1ca961934</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Angular App">92b7b0eadb620010ede329e1ca961934</sys_scope>
+        <sys_update_name>sys_ui_script_83e25433dba20010ede329e1ca961903</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-05 18:02:13</sys_updated_on>
+        <ui_type>10</ui_type>
+        <use_scoped_format>false</use_scoped_format>
+    </sys_ui_script>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Angular App">92b7b0eadb620010ede329e1ca961934</application>
+        <file_path/>
+        <instance_id>225f594cdb383f00f492c597059619cb</instance_id>
+        <instance_name>dev79793</instance_name>
+        <name>sys_ui_script_83e25433dba20010ede329e1ca961903</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ui_script"&gt;&lt;sys_ui_script action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;description&gt;Client-side logic for Angular App. &amp;#13;
+[https://developer.servicenow.com/app.do#!/training/article/app_store_learnv2_angularjs_newyork_introduction_to_angularjs_in_servicenow/app_store_learnv2_angularjs_newyork_exercise_create_and_use_a_ui_script?v=newyork]&lt;/description&gt;&lt;global&gt;false&lt;/global&gt;&lt;name&gt;x_414057_angular_a.angular_app_client_lo&lt;/name&gt;&lt;script&gt;&lt;![CDATA[angular.module('angularapp', []);
+angular.module('angularapp').controller('AngularAppCtrl', function($scope/*, $sce*/){
+	var entityMap = {
+        "&amp;": "&amp;amp;",
+        "&lt;": "&amp;lt;",
+        "&gt;": "&amp;gt;",
+        '"': '&amp;quot;',
+        "'": '&amp;#39;',
+        "/": '&amp;#x2F;'
+    };
+	$scope.myVar = '';
+	$scope.incidentId = '57af7aec73d423002728660c4cf6a71c';
+	$scope.panel = '';
+	$scope.i = 0;
+	$scope.clearTxt = function(){
+		$scope.myVar = '';
+		$scope.i++;
+		alert("the myVar value was cleared " + $scope.i + " times by " + g_user.userName);
+	};
+	
+	$scope.showIncident = function(){
+		//alert($scope.incidentId);
+		var gajx = new GlideAjax("ServiceNowIncidentUtilsAjax");
+		gajx.addParam('sysparm_name', "getIncident");
+		gajx.addParam('sysparm_instance', $scope.incidentId);
+		gajx.getXMLWait();
+		
+		var answer = JSON.parse(gajx.getAnswer());
+		//alert("answer is: " + answer.message);
+		//$scope.panel = $sce.trustAsHtml(answer.message);
+        $scope.panel = String(answer.message).replace(/[&amp;&lt;&gt;"'\/]/g, function (s) {
+            return entityMap[s];
+        });
+		//$scope.panel = answer.message;
+	};
+});]]&gt;&lt;/script&gt;&lt;script_name&gt;angular_app_client_logic&lt;/script_name&gt;&lt;sys_class_name&gt;sys_ui_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2020-01-31 10:35:32&lt;/sys_created_on&gt;&lt;sys_id&gt;83e25433dba20010ede329e1ca961903&lt;/sys_id&gt;&lt;sys_mod_count&gt;45&lt;/sys_mod_count&gt;&lt;sys_name&gt;x_414057_angular_a.angular_app_client_lo&lt;/sys_name&gt;&lt;sys_package display_value="Angular App" source="x_414057_angular_a"&gt;92b7b0eadb620010ede329e1ca961934&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Angular App"&gt;92b7b0eadb620010ede329e1ca961934&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_script_83e25433dba20010ede329e1ca961903&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2020-04-05 18:02:13&lt;/sys_updated_on&gt;&lt;ui_type&gt;10&lt;/ui_type&gt;&lt;use_scoped_format&gt;false&lt;/use_scoped_format&gt;&lt;/sys_ui_script&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1183570239</payload_hash>
+        <record_name>x_414057_angular_a.angular_app_client_lo</record_name>
+        <reverted_from/>
+        <source>7c726c38db001010ede329e1ca961916</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-05 18:02:13</sys_created_on>
+        <sys_id>c388247cdb001010ede329e1ca961999</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1714b81d8da0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-05 18:02:13</sys_updated_on>
+        <type>UI Script</type>
+        <update_guid>0f88247c17001010d1ec30d3c96e1898</update_guid>
+        <update_guid_history>0f88247c17001010d1ec30d3c96e1898:-1183570239,d557a43c280010103836c260fa57e684:-1651727558,01e6603cc100101001626315f4664ace:-1183570239,b52564b863001010195f8db17b6f2aa4:-1634262200,feb2ec38e5001010e3cd2faf73e84d95:-546134976,f48ce8d5d04700108a86851bb01198c8:-1634262200,ad7c601979470010cc7bf85f1503d139:-1328368212,d01c6c1980470010c63e9012c81c5855:-1135028571,a24b2cd59547001026dee2cc0f771cb0:-1655434736,010b685541470010f81b8be7f8b3f631:-1842653461,5c886c1587470010c56e08932c8a9ce9:2111716726,5868a05def0700103be70ee1c04e2b4d:-716220074,5408e4d12e470010675294aed4825a4e:-693128236,ff0617c58c030010d4fdb7d6b2efdafe:-1516369201,3201e814278300109ad6600738570c05:-2130736721,5fdbd8d853430010ca8609c5d872ecb2:-1084823768,17bb50dcfa430010acdd1b5d4671f33b:-2130736721,5c03d45409430010f0042fa7d360042f:578531675,c3a21894fe43001054eb913b7ff2b1b1:1486143457,75021814aa430010fb8271a7276d3151:-1986954616,99e1d814614300107695ceca6c9995d2:1506149605,f4c15054d9430010ae3eefe6ce1b9773:-1516369201,6d91d814a84300101512f8ef392d3487:1918107864,894d88dc52030010573f3beeddc3b26a:1137446706,280b801c39030010869cd9012876ce43:611691124,06f8c458cc0300101641205aac5a0a2b:525061434,ab788458100300109466725ae3e832a9:1837291391,e4578cd40603001028dbf106c34fcb6f:-2098937416,f6a40c14f0030010ccc3c597277374d4:-375765000,fc840c14db0300102928bfaf3b8b9cdf:-1069002454,1dfde2bf0d324010667e45bb55e3e653:-731716171,f28862bf523240107f8cbcf4e0bb41cc:1697008709,c004962b5a3200105829d8fe6d1a44b6:1103352603,a0c0d667a73200102389d496026d31eb:1953560920,a8309e67043200102918a7de04967fef:742604633,23990799e7f200100cd1f60ea2552a91:-851203932,6a89031d7bf20010223a272449be6f20:-1556045837,9588cf9913f200108fa0dff76d9bd511:-151783367,3b284b99bff200100afa057b23823386:-1780739996,4f87cb5992f2001034cbac8ceb3ddfda:-2095763594,9687cf5911f2001014f954c9dbf1f747:-661133328,037407151df2001014ef0f4f4ad9ff20:504260543,ab708391a8f20010ac3246aa9a634803:862611804,4a508391c0f200107ef6ae3ea2ed5181:-1698921027,7a5ffe1196f20010b567845489268694:1701459903,cadcf29d63b20010b18b53e3c969ee24:-494755211,4a6cb29d06b20010451c5c42126bb583:-1304544150,daf2d0f308a20010536149bc9917b94f:1661709901</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2020-04-05 18:10:37</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_script">sys_ui_script</sys_db_object>
+        <sys_id>287d3dc09a9048fe9155959c4be82224</sys_id>
+        <sys_metadata>83e25433dba20010ede329e1ca961903</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_414057_angular_a.angular_app_client_lo</sys_name>
+        <sys_package display_value="Angular App" source="x_414057_angular_a">92b7b0eadb620010ede329e1ca961934</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Angular App">92b7b0eadb620010ede329e1ca961934</sys_scope>
+        <sys_scope_delete display_value="">0ab54ba4e14f461e82bb9581759c4564</sys_scope_delete>
+        <sys_update_name>sys_ui_script_83e25433dba20010ede329e1ca961903</sys_update_name>
+        <sys_update_version display_value="sys_ui_script_83e25433dba20010ede329e1ca961903">c388247cdb001010ede329e1ca961999</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2020-04-05 18:10:37</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

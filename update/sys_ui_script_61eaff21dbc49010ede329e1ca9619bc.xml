@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_script">
     <sys_ui_script action="INSERT_OR_UPDATE">
         <active>true</active>
-        <description>Client-side logic for Angular App. &#13;
-[https://developer.servicenow.com/app.do#!/training/article/app_store_learnv2_angularjs_newyork_introduction_to_angularjs_in_servicenow/app_store_learnv2_angularjs_newyork_exercise_create_and_use_a_ui_script?v=newyork]</description>
+        <description/>
         <global>false</global>
-        <name>x_414057_angular_a.angular_app_client_lo</name>
-        <script><![CDATA[angular.module('angularapp', []);
-angular.module('angularapp').controller('AngularAppCtrl', function($scope/*, $sce*/){
+        <name>x_414057_angular_a.angular_app_client_ct</name>
+        <script><![CDATA[angular.module('module1', []).controller('AngularAppCtrl1', $scope, function($scope){
 	var entityMap = {
         "&": "&amp;",
         "<": "&lt;",
@@ -15,14 +13,14 @@ angular.module('angularapp').controller('AngularAppCtrl', function($scope/*, $sc
         "'": '&#39;',
         "/": '&#x2F;'
     };
-	$scope.myVar = '';
+	$scope.myVar = '1er ctrl';
 	$scope.incidentId = '57af7aec73d423002728660c4cf6a71c';
 	$scope.panel = '';
 	$scope.i = 0;
 	$scope.clearTxt = function(){
 		$scope.myVar = '';
 		$scope.i++;
-		alert("the myVar value was cleared " + $scope.i + " times by " + g_user.userName);
+		alert("the myVar value was cleared " + $scope.i + " times by " + g_user.userName + " in first created controller");
 	};
 	
 	$scope.showIncident = function(){
@@ -41,19 +39,19 @@ angular.module('angularapp').controller('AngularAppCtrl', function($scope/*, $sc
 		//$scope.panel = answer.message;
 	};
 });]]></script>
-        <script_name>angular_app_client_logic</script_name>
+        <script_name>angular_app_client_ctrl1</script_name>
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2020-01-31 10:35:32</sys_created_on>
-        <sys_id>83e25433dba20010ede329e1ca961903</sys_id>
-        <sys_mod_count>42</sys_mod_count>
-        <sys_name>x_414057_angular_a.angular_app_client_lo</sys_name>
+        <sys_created_on>2020-04-08 17:16:45</sys_created_on>
+        <sys_id>61eaff21dbc49010ede329e1ca9619bc</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>x_414057_angular_a.angular_app_client_ct</sys_name>
         <sys_package display_value="Angular App" source="x_414057_angular_a">92b7b0eadb620010ede329e1ca961934</sys_package>
         <sys_policy/>
         <sys_scope display_value="Angular App">92b7b0eadb620010ede329e1ca961934</sys_scope>
-        <sys_update_name>sys_ui_script_83e25433dba20010ede329e1ca961903</sys_update_name>
+        <sys_update_name>sys_ui_script_61eaff21dbc49010ede329e1ca9619bc</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2020-02-17 14:33:42</sys_updated_on>
+        <sys_updated_on>2020-04-08 17:22:52</sys_updated_on>
         <ui_type>0</ui_type>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
